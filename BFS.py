@@ -17,5 +17,4 @@ def create_graph():
     nodes = input("Enter the nodes").split()
     for node in nodes:
         g.add_node(node)
-
-    edges_
+    "..."
