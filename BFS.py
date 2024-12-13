@@ -1,20 +1,26 @@
-class Graph():
-    def __init__(self):
-        self.graph = {}
-    def add_node(self,node):
-        if node not in self.graph:
-            self.graph[node] = []
-    def add_edge(self,node1,node2):
-        if node1 in self.graph and node2 in self.graph:
-            self.graph[node1].append(node2)
-            self.graph[node2].append(node1)
-    def __str__(self):
-        return str(self.graph)
+graph = {'5':['3','7'],
+         '3':['2','4'],
+         '7':['8'],
+         '2':[],
+         '4':['8'],
+         '8':[]
+         }
 
-def create_graph():
-    g = Graph()
+visited = []
+queue = []
 
-    nodes = input("Enter the nodes").split()
-    for node in nodes:
-        g.add_node(node)
-    "..."
+def bfs_algorithm(visited,queue,node):
+    visited.append(node)
+    queue.append(node)
+
+    while queue:
+
+        element = queue.pop(0)
+        print(f'{element}',end=' ')
+
+        for nei in graph[element]:
+            if nei not in visited:
+                visited.append(nei)
+                queue.append(nei)
+
+bfs_algorithm(visited,queue,'5')
