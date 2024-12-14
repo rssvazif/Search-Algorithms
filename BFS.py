@@ -1,26 +1,31 @@
-graph = {'5':['3','7'],
-         '3':['2','4'],
-         '7':['8'],
-         '2':[],
-         '4':['8'],
-         '8':[]
+graph = {'A':['B','C','D'],
+         'B':['E'],
+         'C':['F','G'],
+         'D':[],
+         'E':[],
+         'F':[],
+         'G':[]
          }
 
 visited = []
 queue = []
+start = 'A'
 
-def bfs_algorithm(visited,queue,node):
-    visited.append(node)
-    queue.append(node)
-
+def bfs_algorithm(visited,queue,start):
+    target = input('please enter your target!!')
+    queue.append(start)
     while queue:
+        p = queue.pop(0)
+        if p == target:
+            visited.append(p)
+            return visited
+        else:
+            visited.append(p)
+            for element in graph[p]:
+                queue.append(element)
 
-        element = queue.pop(0)
-        print(f'{element}',end=' ')
 
-        for nei in graph[element]:
-            if nei not in visited:
-                visited.append(nei)
-                queue.append(nei)
 
-bfs_algorithm(visited,queue,'5')
+solution = bfs_algorithm(visited,queue,start)
+for i in solution:
+    print(i,end=" ")
