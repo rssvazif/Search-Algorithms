@@ -3,7 +3,7 @@ graph = {}
 
 visited = []
 queue = []
-start = 'A'
+
 
 def bfs_algorithm(visited,queue,start):
     target = input('please enter your target!!')
@@ -19,6 +19,7 @@ def bfs_algorithm(visited,queue,start):
                 queue.append(element)
 
 count_node = int(input('please enter nodes of your graph!'))
+start = input('please enter start node.')
 for j in range(count_node):
     parent = input('enter the parent!')
     children = list(input('enter children!'))
