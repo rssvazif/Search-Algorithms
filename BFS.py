@@ -1,5 +1,11 @@
-
-graph = {}
+graph = {'A':['B','C','D'],
+         'B':['E'],
+         'C':['F','G'],
+         'D':[],
+         'E':[],
+         'F':[],
+         'G':[]
+         }
 
 visited = []
 queue = []
@@ -18,11 +24,7 @@ def bfs_algorithm(visited,queue,start):
             for element in graph[p]:
                 queue.append(element)
 
-count_node = int(input('please enter nodes of your graph!'))
-for j in range(count_node):
-    parent = input('enter the parent!')
-    children = list(input('enter children!'))
-    graph[parent] = children
+
 
 solution = bfs_algorithm(visited,queue,start)
 for i in solution:
